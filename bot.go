@@ -355,6 +355,10 @@ func (b Bot) sendCommand(method string, params url.Values, v interface{}) error 
 	return json.NewDecoder(resp.Body).Decode(&v)
 }
 
+// Me return bot info
+func Me(b Bot) (User, error) {
+	return b.getMe()
+}
 func (b Bot) getMe() (User, error) {
 	var r struct {
 		OK      bool   `json:"ok"`
